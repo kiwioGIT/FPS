@@ -147,7 +147,6 @@ material/0 = SubResource( 6 )
 [node name="StaticBody" type="StaticBody" parent="MeshInstance3"]
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance3/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="."]
