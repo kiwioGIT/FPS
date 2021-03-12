@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://player_first.gd" type="Script" id=1]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/stormdays_dark.jpg" type="Texture" id=3]
+[ext_resource path="res://Bulletcurve.tres" type="Curve" id=4]
+[ext_resource path="res://DogFightTutorial-master/TrailRenderScriptClass/TrailRender.gd" type="Script" id=5]
+[ext_resource path="res://samitransparent.tres" type="Material" id=6]
+[ext_resource path="res://gun.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.572803, 0.607212, 0.680079 )
+
+[sub_resource type="PanoramaSky" id=5]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 5 )
+ambient_light_color = Color( 1, 1, 0.886275, 1 )
+ambient_light_energy = 0.1
+ambient_light_sky_contribution = 0.1
+fog_depth_begin = 20.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "gunfire"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("_low:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.39097e-13, 90, 0 ), Vector3( -2.00512e-06, 90, 12.404 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("_low:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.7298, -0.221542, -1.14813 ), Vector3( 0.7298, -0.221542, -1.14813 ), Vector3( 0.7298, -0.221542, -1.14813 ) ]
+}
+
+[node name="player" type="KinematicBody" groups=[
+"player",
+]]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.161849, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0, 1, 0, 0, 0, 3, 1, 0, 0, 0, -1.76513, 0 )
+shape = SubResource( 1 )
+
+[node name="Control" parent="." instance=ExtResource( 2 )]
+
+[node name="CamStaticBase" type="Spatial" parent="."]
+
+[node name="CamBase" type="Spatial" parent="CamStaticBase"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.726852, 0 )
+
+[node name="Camera" type="Camera" parent="CamStaticBase/CamBase"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.417, 0 )
+environment = SubResource( 3 )
+current = true
+fov = 90.0
+size = 10.0
+far = 8192.0
+
+[node name="GunOrigin" type="Spatial" parent="CamStaticBase/CamBase"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660932, 0.164072, -1.15622 )
+
+[node name="StaticGunBase" type="Spatial" parent="."]
+
+[node name="GunBase" type="Spatial" parent="StaticGunBase"]
+transform = Transform( 1, 0, 0, 0, 0.994522, -0.104528, 0, 0.104528, 0.994522, 0, -0.740041, 0 )
+
+[node name="_low" parent="StaticGunBase/GunBase" instance=ExtResource( 7 )]
+transform = Transform( -4.99905e-07, 2.45068e-09, 3.00001, 0.644411, 2.92997, 1.04988e-07, -2.92997, 0.644411, -4.88763e-07, 0.7298, -0.221542, -1.14813 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticGunBase/GunBase"]
+anims/gunfire = SubResource( 4 )
+
+[node name="TrailRenderer" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.88, 0 )
+script = ExtResource( 5 )
+width = 2.0
+width_curve = ExtResource( 4 )
+exp_max_points = 150
+material = ExtResource( 6 )
+
+[node name="TrailRenderer2" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, -1.88, 0 )
+script = ExtResource( 5 )
+width = 2.0
+width_curve = ExtResource( 4 )
+exp_max_points = 150
+material = ExtResource( 6 )
+
+[node name="PlayerGraphics" type="Spatial" parent="."]

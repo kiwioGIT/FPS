@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/sci-fi-pistol-game-ready/source/02 - Defaultred.material" type="Material" id=1]
+[ext_resource path="res://models/sci-fi-pistol-game-ready/source/_low.fbx" type="PackedScene" id=2]
+
+[node name="_low" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56459, 1.56763, -1.43657 )
+
+[node name="gun_low2" parent="." index="0"]
+transform = Transform( -0.271369, 0.276308, -0.170252, 0.458059, 0.458038, 0.00142484, 0.369022, -0.365364, -0.126967, 0, 0, 0 )
+material/0 = ExtResource( 1 )

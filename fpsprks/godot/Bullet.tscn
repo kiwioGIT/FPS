@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Bullet.gd" type="Script" id=1]
+[ext_resource path="res://DogFightTutorial-master/TrailRenderScriptClass/TrailRender.gd" type="Script" id=2]
+[ext_resource path="res://Bulletcurve.tres" type="Curve" id=3]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.0627452, 0.0625618, 0.0906637 )
+
+[sub_resource type="CapsuleMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_unshaded = true
+albedo_color = Color( 0.898039, 1, 0, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.0776093, 0.0890143, 0.257055 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0.156863 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 1, 1, 0.156863 )
+
+[node name="Bullet" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+transform = Transform( 0.0481245, 0, 0, 0, 0.0414882, 0, 0, 0, 0.0680961, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+
+[node name="TrailRenderer" type="Spatial" parent="."]
+script = ExtResource( 2 )
+width_curve = ExtResource( 3 )
+material = SubResource( 5 )
+
+[node name="TrailRenderer2" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 2 )
+width_curve = ExtResource( 3 )
+material = SubResource( 6 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

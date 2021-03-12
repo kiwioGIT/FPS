@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/droid-6-13-mark-22/source/a5ca3be69bd6405f8e7ea58fce6b5c71.zip/model/defaultMat.material" type="Material" id=1]
+[ext_resource path="res://models/droid-6-13-mark-22/source/a5ca3be69bd6405f8e7ea58fce6b5c71.zip/model/model.dae" type="PackedScene" id=2]
+
+[node name="model" instance=ExtResource( 2 )]
+
+[node name="g Group13758" parent="." index="0"]
+material/0 = ExtResource( 1 )

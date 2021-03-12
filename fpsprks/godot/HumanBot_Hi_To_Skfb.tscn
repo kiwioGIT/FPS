@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://models/destructible-robot-highpoly/source/HumanBot_Hi_To_Skfb.fbx" type="PackedScene" id=1]
+
+[node name="HumanBot_Hi_To_Skfb" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+
+[node name="group3" parent="Humanbot_Highpoly/group2" index="0"]
+visible = false
+
+[node name="group7" parent="Humanbot_Highpoly/group2/group3" index="0"]
+visible = false
+
+[node name="SK_Hand_Hi2" parent="Humanbot_Highpoly/group2/group3/group7" index="2"]
+transform = Transform( 1, -8.19564e-08, 4.47035e-08, -7.45058e-09, 1, 1.49012e-08, 0, -1.04308e-07, 1, 0, 0, 0 )
+
+[node name="group6" parent="Humanbot_Highpoly/group2" index="1"]
+visible = false
+
+[node name="group3" parent="Humanbot_Highpoly/group8" index="0"]
+transform = Transform( 0.879766, 0.469569, 0.0742768, -0.414102, 0.68016, 0.604898, 0.233522, -0.562927, 0.792831, -0.0266843, 1.46515, 0.115342 )
+
+[node name="group7" parent="Humanbot_Highpoly/group8/group3" index="0"]
+transform = Transform( 0.740091, 0.31523, -0.594051, 0.419958, 0.473302, 0.774353, 0.525263, -0.822567, 0.217902, 0.185109, -0.286546, -0.139751 )
+
+[node name="SK_Arm_Lower_Hi2" parent="Humanbot_Highpoly/group8/group3/group7" index="0"]
+transform = Transform( 1, -2.98023e-08, 8.55653e-09, 8.9407e-08, 1, 7.39237e-09, -1.0652e-08, -1.24739e-07, 1, 0.568438, -0.918938, -0.000140786 )
+
+[node name="SK_Hand_Hi2" parent="Humanbot_Highpoly/group8/group3/group7" index="1"]
+transform = Transform( 1, -1.19209e-07, 6.63567e-08, 1.49012e-07, 1, 5.19794e-08, 6.40284e-09, -1.95461e-07, 1, 0.560634, -0.903619, -0.00120521 )
+
+[node name="SK_Arm_Upper_Hi2" parent="Humanbot_Highpoly/group8/group3" index="1"]
+transform = Transform( 0.999977, 0.00112361, -0.00681968, -0.00103584, 0.999918, 0.0127936, 0.00683349, -0.0127862, 0.999895, 0.554152, -1.08105, 0.278405 )
+
+[node name="group6" parent="Humanbot_Highpoly/group8" index="1"]
+visible = false
+
+[node name="SK_Leg_Upper_Hi2" parent="Humanbot_Highpoly/group8/group6" index="0"]
+visible = false
+
+[node name="SK_Foot_Hi2" parent="Humanbot_Highpoly/group8/group6" index="1"]
+visible = false
+
+[node name="SK_Leg_Lower_Hi2" parent="Humanbot_Highpoly/group8/group6" index="2"]
+visible = false
+
+[node name="M_Chest_Hi2" parent="Humanbot_Highpoly" index="2"]
+visible = false
+
+[node name="SK_Head_Neck_Hi2" parent="Humanbot_Highpoly" index="3"]
+visible = false
+
+[node name="M_Pelvis_Hi2" parent="Humanbot_Highpoly" index="4"]
+visible = false
+
+[node name="M_Mask_Hi2" parent="Humanbot_Highpoly" index="5"]
+visible = false
+
+[node name="M_Head_Hi2" parent="Humanbot_Highpoly" index="6"]
+visible = false
+
+[node name="SK_Head_Hi2" parent="Humanbot_Highpoly" index="7"]
+visible = false
+
+[node name="SK_Chest_Hi2" parent="Humanbot_Highpoly" index="8"]
+visible = false
+
+[node name="M_Torso_Hi2" parent="Humanbot_Highpoly" index="9"]
+visible = false
+
+[node name="SK_Pelvis_Hi2" parent="Humanbot_Highpoly" index="10"]
+visible = false
+
+[node name="SK_Torso_Hi2" parent="Humanbot_Highpoly" index="11"]
+visible = false
